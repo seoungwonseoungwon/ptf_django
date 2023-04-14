@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>냥냥</h1>
-  
-  
-</body>
-</html>
+{% extends 'base.html' %}
+{% block head_title %}대시보드 {% endblock %}
+
+
+{% include 'navbar.html'%}  
+
+{% block main_area %}
+
+<h1> 대시보드</h1>
+{% endblock %}
