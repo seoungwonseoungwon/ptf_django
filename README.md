@@ -6,3 +6,4 @@ django portfolio
 - os windows 10
 - python 3.9
 - django 4.1.7
+- bootstrap 5.2
