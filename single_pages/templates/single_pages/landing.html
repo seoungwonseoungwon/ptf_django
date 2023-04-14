@@ -5,4 +5,20 @@
 {% block main_area %}
 
 <h1> Home</h1>
+
+
+{% for p in posts %}
+<hr/>
+<div class="">
+{{ p.title }}
+{{ p.created_at }}
+{{ p.content }}
+</div>
+
+{% endfor %}
+
+
+
+
+
 {% endblock %}
