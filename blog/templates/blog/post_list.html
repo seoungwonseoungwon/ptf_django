@@ -29,7 +29,7 @@
                             <a class="btn btn-primary" href="{{ p.get_absolute_url }}">Read more →</a>
                         </div>
                         <div class="card-footer text-muted">
-                              Posted on {{ p.created_at}}
+                              Posted on {{ p.created_at}} by <a href="#">{{ p.author | upper}}</a>
                         </div>
                     </div>
                     {% endfor %}
