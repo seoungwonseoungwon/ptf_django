@@ -193,3 +193,15 @@ class CommentUpdate(LoginRequiredMixin, UpdateView):
         else:
             # 작성자 아니면 오류나게함
             raise PermissionDenied
+        
+def delete_comment(request, pk):
+    # delete_comment 함수에서 인자로받은 pk을받고 comment변수에 넣음 만약 객체가 존재하지않는다면 404예외오류 발생시킴
+    comment = get_object_or_404(Comment, pk=pk)
+    post = comment.post
+    # 로그인한 방문자와 작성자가 같으면 실행
+    if request.user.is_authenticated and request.user == comment.author:
+        comment.delete()
+        return redirect(post.get_absolute_url())
+    else:
+        # 아니면 오류
+        raise PermissionDenied
