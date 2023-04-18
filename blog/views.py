@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.exceptions import PermissionDenied
 from django.utils.text import slugify
 from django.shortcuts import get_object_or_404
-from .models import Post, Category, Tag
+from .models import Post, Category, Tag, Comment
 from .forms import CommentForm
 
 
@@ -179,3 +179,17 @@ def new_comment(request, pk):
     else:
         # 로그인하지 않았다면 PermissionDenied 권한이 거부됨
         raise PermissionDenied
+    
+
+class CommentUpdate(LoginRequiredMixin, UpdateView):
+    model = Comment
+    form_class = CommentForm
+
+    # GET인지 POST인지 판단하는 함수
+    def dispatch(self, request, *args, **kwargs):
+        # 작성자인지 아닌지 구별해서 실행하게함
+        if request.user.is_authenticated and request.user == self.get_object().author:
+            return super(CommentUpdate, self).dispatch(request, *args, **kwargs)
+        else:
+            # 작성자 아니면 오류나게함
+            raise PermissionDenied
