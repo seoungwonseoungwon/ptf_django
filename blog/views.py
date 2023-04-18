@@ -4,13 +4,15 @@ from .models import Post
 
 # Create your views here.
 
+class PostList(ListView):
+    model = Post
+    ordering = '-pk'
+
+# def index(request):
+#     posts = Post.objects.all().order_by('-pk')
 
 
-def index(request):
-    posts = Post.objects.all().order_by('-pk')
-
-
-    return render(request, 'blog/index.html',{'posts':posts})
+#     return render(request, 'blog/index.html',{'posts':posts})
 
 
 def post_detail(request, pk):
