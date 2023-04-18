@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head_title %} {{post.pk}}번째 포스트 {% endblock %}
+
+{% block main_area %}
+
+
+<h1>{{ post.title }}</h1>
+<h4>{{ post.created_at }}</h4>
+<p>{{ post.content }}</p>
+<hr/>
+
+
+
+
+
+{% endblock %}
