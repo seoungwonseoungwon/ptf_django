@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
-
-{% block head_title %}포스트 수정 {% endblock %}
+{% block head_title %}Edit Post - Blog {% endblock %}
 
 {% block main_area %}
+
 <div class="row">
   <div class="col-lg-8">
-    <h1>Edit New Post</h1>
+    <h1>Edit Post</h1>
     <hr>
     <form method="post" enctype="multipart/form-data">{% csrf_token %}
-
-        {{ form }}
+        {{ form|crispy }}
         <div id="div_id_tags_str">
           <label for="id_tags_str">Tags:</label>
-          <input type="text" name="tags_str" id="id_tags_str" class="textinput textInput form-control">
+          <input type="text" name="tags_str" id="id_tags_str" class="textinput textInput form-control" value="{{ tags_str_default }}">
         </div>
         <br/>
     
@@ -22,6 +22,4 @@
     </form>
   </div>
 </div>
-
-
 {% endblock %}
