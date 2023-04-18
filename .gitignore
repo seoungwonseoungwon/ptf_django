@@ -132,6 +132,6 @@ dmypy.json
 # add mine
 ptf_venv/
 migrations/
-
+_media/
 
 
