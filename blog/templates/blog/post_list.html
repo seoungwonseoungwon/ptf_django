@@ -5,21 +5,14 @@
 {% load static %}
 
 {% block main_area %}
-        <!-- Page header with logo and tagline-->
-        <header class="py-5 bg-light border-bottom mb-4">
-            <div class="container">
-                <div class="text-center my-5">
-                    <h1 class="fw-bolder">Welcome to Blog Home!</h1>
-                    <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
-                </div>
-            </div>
-        </header>
+
         <!-- Page content-->
-        <div class="container">
+        <div class="container mt-5">
             <div class="row">
                 <!-- Blog entries-->
-                <div class="col-lg-8">
+                <div class="col-lg-8" id="main-area">
                     <!-- Featured blog post-->
+                    {% if post_list.exists %}
                     {% for p in post_list %}
                     <div class="card mb-4">
                       {% if p.head_image %}
@@ -40,6 +33,9 @@
                         </div>
                     </div>
                     {% endfor %}
+                    {% else %}
+                    <h3>아직 게시물이 없습니다</h3>
+                    {% endif %}
 
                     <!-- Pagination-->
                     <nav aria-label="Pagination">
