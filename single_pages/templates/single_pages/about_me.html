@@ -1,12 +1,94 @@
 {% extends 'base.html'%}
-
+{% load static %}
 
 {% block head_title %}소개 {% endblock %}
 
 {% block main_area %}
 
-<h1> About_me</h1>
-<h2> 내가 바로 강승원</h2>
+<section>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-lg-8">
+        <h1>안녕하세요. 달타냥입니다.</h1>
+        <br/>
+        <p class="lead">
+          음악과 컴퓨터와 수영을 좋아합니다. <br/>
+          데이터분석으로 돈을 벌고, 퇴근후에는 운동을 하거나 책을 쓰면서 지냅니다.
+        </p>
+        <ul>
+          <li>WORK EXPERIENCE</li>
+          <ul>
+            <li>크고 좋은회사 - 빅데이터 분석</li>
+            <li>모모공공기관</li>
+          </ul>
+          <li>EDUCATION</li>
+          <ul>
+            <li>공학박사, 장고공학, 파이썬대학교</li>
+            <li>공학박사, 장고공학, 파이썬대학교</li>
+            <li>공학박사, 장고공학, 파이썬대학교</li>
+          </ul>
+          <li>PUBLISH</li>
+          <ul>
+            <li>DO IT DJANGO, 이지스퍼블리싱</li>
+          </ul>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <img class="img-fluid" src="{% static 'single_pages/images/강승원.jpg'%}" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light margin-for-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>PORTFOLIO</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card" data-toggle="modal" data-target="#pycon2017">
+          <img class="card-img-top" src="" alt="">
+          <div class="card-body">
+            <h5 class="card-title">파이썬으로 통계업무 자동화하기 </h5>
+            <p>python, django, pandas, python-docs로 통계업무 자동화한 내용을 파이콘에서 발표했습니다</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card" data-toggle="modal" data-target="#inflearn_django2">
+          <img class="card-img-top" src="" alt="">
+          <div class="card-body">
+            <h5 class="card-title">파이썬 사용자를 위한 웹개발 입문 </h5>
+            <p>파이썬 웹개발에 대한 인프런 동영상강의입니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card" data-toggle="modal" data-target="#automation_python">
+          <img class="card-img-top" src="" alt="">
+          <div class="card-body">
+            <h5 class="card-title">직장인을 위한 프로그래밍 입문과 업무자동화 활용</h5>
+            <p>파이썬 업무자동화에 대한 인프런 동영상 강의입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="pycon2017" tabindex="-1" role="dialog" aria-labelledby="pycon2017ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document"></div>
+</div>
+<div class="modal fade" id="inflearn_django2" tabindex="-1" role="dialog" aria-labelledby="inflearnDjangoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document"></div>
+</div>
+<div class="modal fade" id="automation_python" tabindex="-1" role="dialog" aria-labelledby="automationPythonModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document"></div>
+</div>
 
 
 {% endblock %}
