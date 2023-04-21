@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block head_title %}대시보드 {% endblock %}
 
 
@@ -10,72 +11,60 @@
 {{ cd.price }}
 {% endfor %}
 
-<div>
-  <canvas id="myChart"></canvas>
+<button type="button" class="btn btn-primary">Primary</button>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sdsd">
+  용산구
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="sdsd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div style="width: 600px; height: 200px;">
+          <canvas id="yongsan"></canvas>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+<div>
+  <div style="width: 600px; height: 200px;">
+    <canvas id="yongsan"></canvas>
+  </div>
+  <div style="width: 600px; height: 200px;">
+    <canvas id="yangcheon"></canvas>
+  </div>
+  <div style="width: 600px; height: 200px;">
+    <canvas id="yeongdeungpo"></canvas>
+  </div>
+  <div style="width: 600px; height: 200px;">
+    <canvas id="dobong"></canvas>
+  </div>
+  <div style="width: 600px; height: 200px;">
+    <canvas id="gwangjin"></canvas>
+  </div>
+</div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% include 'dashboard/seoul/yongsan.html' %}
+{% include 'dashboard/seoul/yangcheon.html' %}
+{% include 'dashboard/seoul/yeongdeungpo.html' %}
+{% include 'dashboard/seoul/dobong.html' %}
+{% include 'dashboard/seoul/gwangjin.html' %}
 
-<script>
-const ctx = document.getElementById('myChart');
-
-
-
-// const labels = ['ㄱ','ㄴ','ㄷ','ㄹ','ㅁ','ㅂ','ㅅ']
-const labels = [
-  {% for cd in seoul_datas %}
-  '{{ cd.restaurant }}',
-  {% endfor %}
-]
-
-const pop_data = [
-  {% for cd in seoul_datas %}
-  {{ cd.name_count }},
-  {% endfor %}
-
-]
-
-const data = {
-  labels: labels,
-  datasets: [{
-    label: 'My First Dataset',
-    data: pop_data,
-    backgroundColor: [
-      'rgba(255, 99, 132, 0.2)',
-      'rgba(255, 159, 64, 0.2)',
-      'rgba(255, 205, 86, 0.2)',
-      'rgba(75, 192, 192, 0.2)',
-      'rgba(54, 162, 235, 0.2)',
-      'rgba(153, 102, 255, 0.2)',
-      'rgba(201, 203, 207, 0.2)'
-    ],
-    borderColor: [
-      'rgb(255, 99, 132)',
-      'rgb(255, 159, 64)',
-      'rgb(255, 205, 86)',
-      'rgb(75, 192, 192)',
-      'rgb(54, 162, 235)',
-      'rgb(153, 102, 255)',
-      'rgb(201, 203, 207)'
-    ],
-    borderWidth: 1
-  }]
-};
-
-const config = {
-  type: 'bar',
-  data: data,
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  },
-};
-
-new Chart(ctx, config)
-</script>
-
-
+<!-- <script defer src="../../static/dashboard/js/main.js"></script> -->
 
 {% endblock %}

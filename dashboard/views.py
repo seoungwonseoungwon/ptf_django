@@ -9,11 +9,87 @@ from django.db.models import Max, Sum, Count
 def dashboard(request):
 
 
+    # seoul = Opexseoul.objects.all()
+    # yangcheon_datas = Opexseoul.objects.values('restaurant').annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:5]
+
+    # for re in seoul:
+        # print(re.borough)
+
+        # if re.borough == "yangcheon":
+
+            # yangcheon = re.borough
+
+            # print("t",yangcheon)
+
+
+
+    yangcheon_datas = Opexseoul.objects.filter(borough='yangcheon').values('restaurant').annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:5]
+
+    yongsan_datas = Opexseoul.objects.filter(borough='yongsan').values('restaurant').annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:5]
+
+    yeongdeungpo_datas = Opexseoul.objects.filter(borough='yeongdeungpo').values('restaurant').annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:5]
+    
+    dobong_datas = Opexseoul.objects.filter(borough='dobong').values('restaurant').annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:5]
+
+
+    gwangjin_datas = Opexseoul.objects.filter(borough='gwangjin').values('restaurant').annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:5]
+
+    
+
+
+
+    # print(yongsan_datas)
+
+    # print(len(yangcheon_datas))
+    # print(len(yongsan_datas))
+
+    test = {
+        "yangcheon_datas": yangcheon_datas,
+        "yongsan_datas":yongsan_datas,
+        "yeongdeungpo_datas":yeongdeungpo_datas,
+        "dobong_datas":dobong_datas,
+        "gwangjin_datas":gwangjin_datas,
+
+    }
+    
+    # return render(request, 'dashboard/dashboard.html',{"yangcheon_datas":yangcheon_datas})
+    return render(request, 'dashboard/dashboard.html',test)
+    
+
+    
+
+    
+
+            
+
+
+
+
+    # yangcheon_datas = Opexseoul.objects.values('restaurant').annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:5]
+        # elif re.borough == "yongsan":
+        #     yongsan_datas = Opexseoul.objects.values('restaurant').annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:5]
+
+        
+
+    return render(request, 'dashboard/dashboard.html')
+        
+        
+
+
+
+
+    # return render(request, 'dashboard/dashboard.html',{"yangcheon_datas":yangcheon_datas})
+
     # seoul_datas = Opexseoul.objects.values()
-    seoul_datas = Opexseoul.objects.values('restaurant').annotate(name_count=Count('restaurant')).filter(name_count__gt=1).order_by('-name_count')[:5]
+
+    
+    
 
 
-    return render(request, 'dashboard/dashboard.html',{"seoul_datas":seoul_datas})
+
+
+
+    # return render(request, 'dashboard/dashboard.html',{"seoul_datas":seoul_datas})
 
     # recent_posts = Opexseoul.objects.order_by('-personnel')[:5]
     # print(len(seoul_datas))
@@ -67,12 +143,12 @@ def dashboard(request):
         
     # print(seoul_datas)
     # rd = []
-    num = 0
+    # num = 0
     # i = 0
 
-    total = []
+    # total = []
 
-    total2 = {}
+    # total2 = {}
     
     # for test in seoul_datas:
 
