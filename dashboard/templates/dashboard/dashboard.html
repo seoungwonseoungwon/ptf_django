@@ -4,136 +4,73 @@
 
 
 {% block main_area %}
+<body>
+  
+</body>
 
-<h1> 대시보드</h1>
+<h1 style="margin-top: 100px;"> 대시보드</h1>
+
+<h2 style="margin-bottom: 150px;">자치구 식당별 방문횟수 순위</h2>
 
 {% for cd in cd%}
 {{ cd.price }}
 {% endfor %}
 
-<div class="container text-center">
-  <div class="row mb-5">
-    <div class="col"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sdsd">
-      용산구
-    </button></div>
-    <div class="col"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#yangcheon_c">
-      양천구
-    </button></div>
-    <div class="col"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#yeongdeungpo_c">
-      영등포구
-    </button></div>
-    <div class="col"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dobong_c">
-      도봉구
-    </button></div>
-    <div class="col"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#gwangjin_c">
-      광진구
-    </button></div>
-  </div>
-  <div class="row">
-    <div class="col">col</div>
-    <div class="col">col</div>
-    <div class="col">col</div>
-  </div>
-
-</div>
-
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sdsd">
-  용산구
-</button> -->
-
-<!-- Modal -->
-<div class="modal fade" id="sdsd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div style="width: 600px; height: 200px;">
-          <canvas id="yongsan"></canvas>
+<!-- <div class="d-flex mt-4"> -->
+<div class="d-flex mt-4">
+  <ul class="nav nav-tabs flex-column me-4 flex-shrink-1 ulmg" id="myTab" role="tablist" aria-orientation="vertical">
+    <li class="nav-item chartB my-3" role="presentation">
+      <button class="nav-link active" id="ys-tab" data-bs-toggle="tab" data-bs-target="#tab-ys-pane" type="button" role="tab" aria-controls="v-tab-ys" aria-selected="true" onclick="yongsan('yongsan');">용산구</button>
+    </li>
+    <li class="nav-item chartB my-3" role="presentation">
+      <button class="nav-link" id="jr-tab" data-bs-toggle="tab" data-bs-target="#tab-jr-pane" type="button" role="tab" aria-controls="v-tab-jr" aria-selected="false" onclick="yangcheon('yangcheon');">양천구</button>
+    </li>
+    <li class="nav-item chartB my-3" role="presentation">
+      <button class="nav-link" id="ydp-tab" data-bs-toggle="tab" data-bs-target="#tab-ydp-pane" type="button" role="tab" aria-controls="v-tab-ydp" aria-selected="false" onclick="yeongdeungpo('yeongdeungpo');">영등포구</button>
+    </li>
+    <li class="nav-item chartB my-3" role="presentation">
+      <button class="nav-link" id="j-tab" data-bs-toggle="tab" data-bs-target="#tab-j-pane" type="button" role="tab" aria-controls="v-tab-j" aria-selected="false" onclick="dobong('dobong');">도봉구</button>
+    </li>
+    <li class="nav-item chartB my-3" role="presentation">
+      <button class="nav-link" id="j-tab" data-bs-toggle="tab" data-bs-target="#tab-g-pane" type="button" role="tab" aria-controls="v-tab-j" aria-selected="false" onclick="gwangjin('gwangjin');">광진구</button>
+    </li>
+  </ul>
+  <div class="w-100">
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="tab-ys-pane" role="tabpanel" aria-labelledby="ys-tab" tabindex="0">
+        <div class="view-bubble">
+          <div class="my-1" style="height: 400px;"style="position: relative; height:40vh; width:80vw">
+            <canvas id="yongsan"></canvas>
+          </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="yangcheon_c" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div style="width: 600px; height: 200px;">
-          <canvas id="yangcheon"></canvas>
+      <div class="tab-pane fade" id="tab-jr-pane" role="tabpanel" aria-labelledby="jr-tab" tabindex="0">
+        <div class="view-bubble">
+            <div class="my-1" style="height: 400px;">
+              <canvas id="yangcheon"></canvas>
+            </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="yeongdeungpo_c" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div style="width: 600px; height: 200px;">
-          <canvas id="yeongdeungpo"></canvas>
+      <div class="tab-pane fade" id="tab-ydp-pane" role="tabpanel" aria-labelledby="ydp-tab" tabindex="0">
+        <div class="view-bubble">
+            <div class="my-1" style="height: 400px;">
+              <canvas id="yeongdeungpo"></canvas>
+            </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="dobong_c" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div style="width: 600px; height: 200px;">
-          <canvas id="dobong"></canvas>
+      <div class="tab-pane fade" id="tab-j-pane" role="tabpanel" aria-labelledby="j-tab" tabindex="0">
+        <div class="view-bubble">
+            <div class="my-1" style="height: 400px;">
+              <canvas id="dobong"></canvas>
+            </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="gwangjin_c" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div style="width: 600px; height: 200px;">
-          <canvas id="gwangjin"></canvas>
+      <div class="tab-pane fade" id="tab-g-pane" role="tabpanel" aria-labelledby="j-tab" tabindex="0">
+        <div class="view-bubble">
+            <div class="my-1" style="height: 400px;">
+              <canvas id="gwangjin"></canvas>
+            </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head_title %}대시보드 {% endblock %}
+
+
+{% block main_area %}
+
+<h1> 대시보드</h1>
+
+{% for cd in cd%}
+{{ cd.price }}
+{% endfor %}
+
+<div class="container text-center">
+  <div class="row mb-5">
+    <div class="col"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sdsd">
+      용산구
+    </button></div>
+    <div class="col"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#yangcheon_c">
+      양천구
+    </button></div>
+    <div class="col"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#yeongdeungpo_c">
+      영등포구
+    </button></div>
+    <div class="col"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dobong_c">
+      도봉구
+    </button></div>
+    <div class="col"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#gwangjin_c">
+      광진구
+    </button></div>
+  </div>
+  <div class="row">
+    <div class="col">col</div>
+    <div class="col">col</div>
+    <div class="col">col</div>
+  </div>
+
+</div>
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sdsd">
+  용산구
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="sdsd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div style="width: 600px; height: 200px;">
+          <canvas id="yongsan"></canvas>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="yangcheon_c" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div style="width: 600px; height: 200px;">
+          <canvas id="yangcheon"></canvas>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="yeongdeungpo_c" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div style="width: 600px; height: 200px;">
+          <canvas id="yeongdeungpo"></canvas>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="dobong_c" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div style="width: 600px; height: 200px;">
+          <canvas id="dobong"></canvas>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="gwangjin_c" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div style="width: 600px; height: 200px;">
+          <canvas id="gwangjin"></canvas>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div>
+  <div style="width: 600px; height: 200px;">
+    <canvas id="yongsan"></canvas>
+  </div>
+  <div style="width: 600px; height: 200px;">
+    <canvas id="yangcheon"></canvas>
+  </div>
+  <div style="width: 600px; height: 200px;">
+    <canvas id="yeongdeungpo"></canvas>
+  </div>
+  <div style="width: 600px; height: 200px;">
+    <canvas id="dobong"></canvas>
+  </div>
+  <div style="width: 600px; height: 200px;">
+    <canvas id="gwangjin"></canvas>
+  </div>
+</div> -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% include 'dashboard/seoul/yongsan.html' %}
+{% include 'dashboard/seoul/yangcheon.html' %}
+{% include 'dashboard/seoul/yeongdeungpo.html' %}
+{% include 'dashboard/seoul/dobong.html' %}
+{% include 'dashboard/seoul/gwangjin.html' %}
+
+<!-- <script defer src="../../static/dashboard/js/main.js"></script> -->
+
+{% endblock %}
