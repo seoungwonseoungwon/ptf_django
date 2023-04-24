@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load social_share %}
 {% block main_area %}
 
 <div class="row">
@@ -18,7 +19,7 @@
             <h5 class="text-muted">{{ post.hook_text }}</h5>
             <!-- Author-->
             <p class="lead">
-                by
+                by 
                 <a href="#!">{{ post.author | upper}}</a>
             </p>
             <hr />
@@ -56,6 +57,17 @@
             <br />
             <br />
             {% endif %}
+            <hr>
+            <span><i class="bi bi-share"></i></span>
+            <button type ="button" class = "btn btn-light float-right">
+                {% post_to_twitter '{{post.title}} 새로운 글!' post.get_absolute_url "Post to Twitter"%}
+            </button>
+            <button class="btn btn-light float-right" style="display: flex; border: 1px solid black;">
+                <i class="bi bi-facebook mr-1"></i>{% post_to_facebook post.get_absolute "facebook" %}
+                <button type ="button" class ="btn btn-light float-right">
+                    {% send_email post.title "New! {{post.title}} Check it out!" object_or_url "Share email" %}
+                </button>
+            </button>
 
 
             {% if post.file_upload %}

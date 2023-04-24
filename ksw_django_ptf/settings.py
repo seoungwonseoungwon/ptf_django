@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'blog',
     'crispy_forms',
     'crispy_bootstrap4',
+    'django_social_share',
 
     # all-auth  lib 설정
     'django.contrib.sites',
