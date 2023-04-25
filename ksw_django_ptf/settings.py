@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
+from . import myenv
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)&f7#bpfmw9fs%7qh2e&zd^g0%_*e(-%eap%51d7=^e&ecmla!'
+SECRET_KEY = myenv.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = myenv.DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = myenv.ALLOWED_HOSTS
 
 
 # Application definition
@@ -93,12 +95,7 @@ WSGI_APPLICATION = 'ksw_django_ptf.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+DATABASES = myenv.DATABASES
 
 
 # Password validation
