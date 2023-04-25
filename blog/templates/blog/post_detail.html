@@ -35,9 +35,9 @@
             <hr />
             <!-- Preview image-->
             {% if post.head_image %}
-            <img class="img-fluid rounded" src="{{ post.head_image.url }}" alt="{{ post.title}} head_image" />
+            <img class="img-fluid rounded" src="{{ post.head_image.url }}" alt="{{ post.title}} head_image" oncontextmenu="return false;" />
             {% else %}
-            <img class="img-fluid rounded" src="https://picsum.photos/id/{{post.id}}/900/250" alt="random_image" />
+            <img class="img-fluid rounded" src="https://picsum.photos/id/{{post.id}}/900/250" alt="random_image" oncontextmenu="return false;" />
             {% endif %}
             <hr />
             <!-- Post content-->
@@ -59,15 +59,19 @@
             {% endif %}
             <hr>
             <span><i class="bi bi-share"></i></span>
-            <button type ="button" class = "btn btn-light float-right">
+            <button type ="button" class = "btn btn-light float-right" style="border: 1px solid black; display: flex;">
+                <i class="bi bi-twitter mr-1"></i>
                 {% post_to_twitter '{{post.title}} 새로운 글!' post.get_absolute_url "Post to Twitter"%}
             </button>
-            <button class="btn btn-light float-right" style="display: flex; border: 1px solid black;">
+            <button class="btn btn-light float-right mr-1" style="display: flex; border: 1px solid black;">
                 <i class="bi bi-facebook mr-1"></i>{% post_to_facebook post.get_absolute "facebook" %}
-                <button type ="button" class ="btn btn-light float-right">
-                    {% send_email post.title "New! {{post.title}} Check it out!" object_or_url "Share email" %}
-                </button>
             </button>
+                <button type ="button" class ="btn btn-light float-right mr-1" style="border: 1px solid black; display: flex;">
+                    <i class="bi bi-envelope mr-1"></i>
+                    {% send_email post.title "New! {{post.title}} Check it out!" object_or_url "Share email" %}
+            </button>
+            <button id="copyBtn" class="float-right mr-1 btn btn-light" style="border: 1px solid black;">URL 복사하기</button>
+            <div id="copyUrlMessage"></div>
 
 
             {% if post.file_upload %}

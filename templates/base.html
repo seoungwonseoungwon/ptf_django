@@ -50,6 +50,24 @@
                     searchPost();
                 }
             });
+
+            const copyBtn = document.getElementById('copyBtn');
+            copyBtn.addEventListener('click', () => {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url)
+                .then(() => {
+                console.log('URL이 복사되었습니다.');
+                // 성공적으로 복사되었을 때 실행할 코드 작성
+                })
+                .catch(err => {
+                console.error('URL 복사 실패: ', err);
+                // 복사 실패 시 실행할 코드 작성
+                });
+            });
+
+
+
+
         </script>
 
 

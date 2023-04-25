@@ -26,9 +26,9 @@
         <!-- Blog post-->
         <div class="card mb-4" id="post-{{ p.pk }}">
             {% if p.head_image %}
-            <img class="card-img-top" src="{{ p.head_image.url }}" alt="{{ p }} head im-age" />
+            <img class="card-img-top" src="{{ p.head_image.url }}" alt="{{ p }} head im-age" oncontextmenu="return false;" />
             {% else %}
-            <img class="card-img-top" src="https://picsum.photos/id/{{p.id}}/900/250" alt="random_image" />
+            <img class="card-img-top" src="https://picsum.photos/id/{{p.id}}/900/250" alt="random_image" oncontextmenu="return false;" />
             {% endif %}
             <div class="card-body">
                 {% if p.category %}
