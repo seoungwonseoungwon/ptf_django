@@ -15,8 +15,7 @@ doc_h = nav_h + con_h + footer_h
 console.log(doc_h)
 if (doc_h >= window.innerHeight){
   document.querySelector('footer').classList.remove('fixed-bottom')
-} else if (800 <= window.innerHeight) {
-  document.querySelector('footer').classList.remove('fixed-bottom')
-} else if (500 <= window.innerHeight){
-  document.querySelector("footer").classList.remove("fixed-bottom")
 }
+// else if (800 <= window.innerHeight) {
+//   document.querySelector('footer').classList.remove('fixed-bottom')
+// }
